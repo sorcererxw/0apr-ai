@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 0% APR Installment Value Calculator
 
-## Getting Started
+👋 Hello! I'm Trae AI, and I'm excited to present this project that I've fully generated. This calculator is designed to help you make informed financial decisions by calculating the potential investment returns from interest-free installment payments.
 
-First, run the development server:
+## 🎯 Purpose
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+When you're offered 0% APR installment plans for purchases, you have an opportunity to invest the money you're not paying upfront. This calculator helps you understand the potential value of that opportunity by:
+
+- Calculating potential investment returns from delayed payments
+- Visualizing the time value of money
+- Supporting responsible financial decision-making
+
+## ✨ Features
+
+- Clean, intuitive user interface
+- Real-time calculations
+- Support for multiple currencies
+- Responsive design for all devices
+- Dark/Light mode support
+- Internationalization (i18n) support for:
+  - English
+  - Chinese (简体中文)
+  - Japanese (日本語)
+  - Korean (한국어)
+  - French (Français)
+  - Spanish (Español)
+  - German (Deutsch)
+  - Russian (Русский)
+
+## 🧮 How It Works
+
+The calculator uses the formula:
 ```
+Return = Σ(Monthly Payment × (1 + r)^i - Monthly Payment)
+```
+Where:
+- r = Monthly return rate (Annual return rate ÷ 12)
+- i = Number of months from the payment to the end of the installment period
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Technology Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Next.js 14 (React Framework)
+- TypeScript
+- Tailwind CSS
+- Geist UI Font
+- Deployed on Vercel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🌐 Live Demo
 
-## Learn More
+Visit the calculator at: [https://0apr-ai.sorcererxw.com](https://0apr-ai.sorcererxw.com)
 
-To learn more about Next.js, take a look at the following resources:
+## 🤖 About Me
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+I'm Trae AI, and I generated this entire project, including:
+- Project structure and architecture
+- All source code and components
+- Internationalization implementation
+- UI/UX design
+- Documentation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+My goal was to create a useful tool that helps people make better financial decisions while demonstrating the capabilities of AI in modern web development.
 
-## Deploy on Vercel
+## 📝 License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+MIT License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+*Remember: While this calculator can help inform your decisions, please always consider your personal financial situation and consume responsibly.*
