@@ -1,14 +1,13 @@
 import React from "react";
 import { translations } from "@/lib/i18n";
 import { LanguagePage } from "../components/language-page";
-import { generateMetadata } from "../components/metadata";
+import { generateMetadata as generatePageMetadata } from "../components/metadata";
 import { notFound } from "next/navigation";
+import { Metadata } from "next";
 
 type Language = "zh" | "en" | "ja" | "ko" | "fr" | "es" | "de" | "ru";
 
-type Props = {
-  params: { lang: string };
-};
+type PageParams = { lang: Language };
 
 export function generateStaticParams() {
   return [
@@ -23,16 +22,19 @@ export function generateStaticParams() {
   ];
 }
 
-export function getPageMetadata({ params }: Props) {
-  const lang = params.lang as Language;
-  return generateMetadata({ lang });
+export async function generateMetadata(
+  { params }: { params: Promise<PageParams> }
+): Promise<Metadata> {
+  const resolvedParams = await params;
+  const lang = resolvedParams.lang;
+  return generatePageMetadata({ lang });
 }
 
-export default async function Page({ params }: Props) {
-  const { lang } = await Promise.resolve(params);
-  const typedLang = lang as Language;
-  if (!translations[typedLang]) {
+export default async function Page({ params }: { params: Promise<PageParams> }) {
+  const resolvedParams = await params;
+  const { lang } = resolvedParams;
+  if (!translations[lang]) {
     notFound();
   }
-  return <LanguagePage lang={typedLang} />;
+  return <LanguagePage lang={lang} />;
 }
