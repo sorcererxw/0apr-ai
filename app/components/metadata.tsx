@@ -1,7 +1,5 @@
 import { Metadata } from "next";
-import { translations } from "@/lib/i18n";
-
-type Language = "zh" | "en" | "ja" | "ko" | "fr" | "es" | "de" | "ru";
+import { translations, Language, languageList } from "@/lib/i18n";
 
 interface GenerateMetadataProps {
   lang: Language;
@@ -10,11 +8,10 @@ interface GenerateMetadataProps {
 export function generateMetadata({ lang }: GenerateMetadataProps): Metadata {
   const t = translations[lang];
   const alternates: { [key: string]: string } = {};
-  const languages: Language[] = ["zh", "en", "ja", "ko", "fr", "es", "de", "ru"];
 
   // 生成所有语言版本的 hreflang
-  languages.forEach((l) => {
-    alternates[`${l}-${l.toUpperCase()}`] = `/${l}`;
+  languageList.forEach((l) => {
+    alternates[`${l.value}-${l.value.toUpperCase()}`] = `/${l.value}`;
   });
 
   return {

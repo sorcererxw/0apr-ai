@@ -1,25 +1,18 @@
 import React from "react";
-import { translations } from "@/lib/i18n";
+import { translations, languageList } from "@/lib/i18n";
 import { LanguagePage } from "../components/language-page";
 import { generateMetadata as generatePageMetadata } from "../components/metadata";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 
-type Language = "zh" | "en" | "ja" | "ko" | "fr" | "es" | "de" | "ru";
+import { Language } from "@/lib/i18n";
 
 type PageParams = { lang: Language };
 
 export function generateStaticParams() {
-  return [
-    { lang: "zh" },
-    { lang: "en" },
-    { lang: "ja" },
-    { lang: "ko" },
-    { lang: "fr" },
-    { lang: "es" },
-    { lang: "de" },
-    { lang: "ru" },
-  ];
+  return languageList.map((lang) => ({
+    lang: lang.value
+  }));
 }
 
 export async function generateMetadata(

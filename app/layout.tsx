@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { languageList } from "@/lib/i18n";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,6 +17,11 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
 };
+
+const languages = languageList.reduce((acc, { value }) => {
+  acc[value] = `/${value}`;
+  return acc;
+}, {} as Record<string, string>);
 
 export const metadata: Metadata = {
   title: "Interest-Free Installment Value Calculator",
@@ -47,15 +53,7 @@ export const metadata: Metadata = {
   robots: "index, follow",
   alternates: {
     canonical: "https://0apr.sorcererxw.com",
-    languages: {
-      en: "/en",
-      zh: "/zh",
-      ja: "/ja",
-      ko: "/ko",
-      fr: "/fr",
-      es: "/es",
-      de: "/de",
-    },
+    languages,
   },
 };
 
