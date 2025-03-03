@@ -19,7 +19,6 @@ export function LanguageSwitcher({ currentLang }: LanguageSwitcherProps) {
   const router = useRouter();
 
   const handleLanguageChange = (lang: Language) => {
-    const currentPath = window.location.pathname;
     const currentSearch = window.location.search;
     const newPath = `/${lang}${currentSearch}`;
     router.push(newPath);
